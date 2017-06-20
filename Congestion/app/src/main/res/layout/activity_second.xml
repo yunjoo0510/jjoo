@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="0,1"
+    android:background="#FFFFFF">
+
+    <TableRow
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/station"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_span="3"
+            android:textStyle="bold"/>
+    </TableRow>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FFFFFF" />
+
+    <TableRow
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/station2"
+            android:text="잠실행"
+            android:stretchColumns="2"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/station3"
+            android:text="사당행"
+            android:stretchColumns="2"
+            android:layout_gravity="center"/>
+    </TableRow>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FFFFFF" />
+
+    <TableRow
+        android:layout_weight="1"
+        android:background="#FDF5E6">
+
+        <TextView
+            android:id="@+id/up1"
+            android:text="2분"
+            android:stretchColumns="2"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/down1"
+            android:text="5분"
+            android:stretchColumns="2"
+            android:layout_gravity="center"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_weight="3"
+        android:background="#FDF5E6">
+
+        <ImageView
+            android:id="@+id/metro1"
+            android:layout_height="80dp"
+            android:layout_width="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/metro"/>
+
+        <ImageView
+            android:id="@+id/metro2"
+            android:layout_height="80dp"
+            android:layout_width="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/metro"/>
+    </TableRow>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FFFFFF" />
+
+    <TableRow
+        android:layout_weight="1"
+        android:background="#F5DEB3">
+
+        <TextView
+            android:id="@+id/up2"
+            android:text="12분"
+            android:stretchColumns="2"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/down2"
+            android:text="15분"
+            android:stretchColumns="2"
+            android:layout_gravity="center"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_weight="3"
+        android:background="#F5DEB3">
+
+        <ImageView
+            android:id="@+id/metro3"
+            android:layout_height="80dp"
+            android:layout_width="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/metro"/>
+
+        <ImageView
+            android:id="@+id/metro4"
+            android:layout_height="80dp"
+            android:layout_width="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/metro" />
+    </TableRow>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FFFFFF" />
+
+    <TableRow
+        android:layout_weight="1"
+        android:background="#D2B48C">
+
+        <TextView
+            android:id="@+id/up3"
+            android:text="22분"
+            android:stretchColumns="2"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/down3"
+            android:text="25분"
+            android:stretchColumns="2"
+            android:layout_gravity="center"
+            />
+    </TableRow>
+
+    <TableRow
+        android:layout_weight="3"
+        android:background="#D2B48C">
+
+        <ImageView
+            android:id="@+id/metro5"
+            android:layout_height="80dp"
+            android:layout_width="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/metro"/>
+
+        <ImageView
+            android:id="@+id/metro6"
+            android:layout_height="80dp"
+            android:layout_width="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/metro"/>
+    </TableRow>
+
+</TableLayout>
