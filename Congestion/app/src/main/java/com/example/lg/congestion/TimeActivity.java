@@ -1,7 +1,7 @@
 package com.example.lg.congestion;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -14,11 +14,15 @@ import android.widget.Toast;
 
 import java.util.Hashtable;
 
-public class TimeActivity extends Activity implements View.OnClickListener, TextWatcher {
+/**
+ * Created by LG on 2017-04-18.
+ */
+
+public class TimeActivity extends AppCompatActivity implements View.OnClickListener, TextWatcher {
 
     public Hashtable<String, Integer> Mmap = new Hashtable<String, Integer>();
     public Button btn_ok;
-    public String[] list = {" "," "};
+    public String[] list = {" ", " "};
     public AutoCompleteTextView editText1;
     public AutoCompleteTextView editText2;
     public int calculate;
@@ -33,8 +37,6 @@ public class TimeActivity extends Activity implements View.OnClickListener, Text
             "신도림역", "대림역", "구로디지털단지역", "신대방역", "신림역",
             "봉천역", "서울대입구역", "낙성대역", "사당역", "방배역",
             "서초역", "교대역"};
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +100,6 @@ public class TimeActivity extends Activity implements View.OnClickListener, Text
         Mmap.put("서초역", 41);
         Mmap.put("교대역", 42);
 
-
     }
 
     public void onClick(View v) {
@@ -107,44 +108,42 @@ public class TimeActivity extends Activity implements View.OnClickListener, Text
         int differ1;
         int size = 43;
 
-        if (v.getId() == R.id.ok) {
-
-            list[0]= (editText1.getText().toString());
-           // Toast.makeText(getApplication(), "출발역 설정" , Toast.LENGTH_SHORT).show();
+        if(v.getId() == R.id.ok) {
+            list[0] = (editText1.getText().toString());
+            //Toast.makeText(getApplication(), "출발역 설정", Toast.LENGTH_SHORT).show();
 
             list[1] = (editText2.getText().toString());
-            // Toast.makeText(getApplication(), list[1] , Toast.LENGTH_SHORT).show();
-            //Toast.makeText(getApplication()," "+ Mmap.equals("강남") , Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplication(), list[1], Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplication(), " " + Mmap.equals("강남"), Toast.LENGTH_SHORT).show();
 
             start.setText(editText1.getText().toString());
             dest.setText(editText2.getText().toString());
             arrow.setImageResource(R.drawable.arrow);
 
-            if(Mmap.containsKey(list[0]) && Mmap.containsKey(list[1])){
-                startnum =  Mmap.get(list [0]);
+            if(Mmap.containsKey(list[0]) && Mmap.containsKey(list[1])) {
+                startnum = Mmap.get(list[0]);
                 arrivalnum = Mmap.get(list[1]);
                 differ1 = Math.abs(arrivalnum - startnum);
 
-                if(arrivalnum - startnum > 0){
-                    if(differ1 >= 22){
-                        calculate = (startnum - arrivalnum + 43)*2;
+                if(arrivalnum - startnum > 0) {
+                    if(differ1 >= 22) {
+                        calculate = (startnum - arrivalnum + 43) * 2;
                     }
                     else
-                        calculate = (arrivalnum - startnum)*2;
+                        calculate = (arrivalnum - startnum) * 2;
                 }
-                else if (arrivalnum - startnum < 0){
-                    if(differ1 >=22){
-                        calculate = (arrivalnum - startnum + 43)*2;
+                else if (arrivalnum - startnum < 0) {
+                    if(differ1 >= 22) {
+                        calculate = (arrivalnum - startnum + 43) * 2;
                     }
                     else
-                        calculate = (startnum - arrivalnum)*2;
+                        calculate = (startnum - arrivalnum) * 2;
                 }
-
             }
             else {
-                Toast.makeText(getApplication(), "잘못된 입력입니다. 다시 입력해 주세요.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplication(), "잘못 입력하였습니다. 다시 입력하세요.", Toast.LENGTH_SHORT).show();
             }
-            textView.setText(calculate+"분");
+            textView.setText(calculate + "분");
         }
     }
 
@@ -163,7 +162,7 @@ public class TimeActivity extends Activity implements View.OnClickListener, Text
 
     }
 
-  /* public Hashtable<String, Integer> getMmap() {
+    /* public Hashtable<String, Integer> getMmap() {
         int startnum;
         int arrivalnum;
         int differ;
@@ -184,5 +183,4 @@ public class TimeActivity extends Activity implements View.OnClickListener, Text
 
         return Mmap;
     } */
-
 }

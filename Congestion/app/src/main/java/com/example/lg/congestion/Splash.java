@@ -1,16 +1,18 @@
 package com.example.lg.congestion;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
 
+/**
+ * Created by LG on 2017-04-05.
+ */
 
-public class Splash extends Activity {
+public class Splash extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        // TODO Auto-generated method stub
+        //TODO Auto-generated mothod stub
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
@@ -22,6 +24,6 @@ public class Splash extends Activity {
             public void run() {
                 finish();
             }
-        },1000); //2000
+        }, 1000); //2000
     }
 }

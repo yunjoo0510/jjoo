@@ -1,10 +1,10 @@
 package com.example.lg.congestion;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -13,10 +13,12 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.lg.congestion.R;
+
 import java.util.Arrays;
 
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, TextWatcher {
 
-public class MainActivity extends Activity implements View.OnClickListener, TextWatcher {
     Button btn;
     ImageView btn1, btn2;
     AutoCompleteTextView edit;
@@ -34,7 +36,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Text
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        startActivity(new Intent(this, Splash.class));
+        startActivity(new Intent(this, com.example.lg.congestion.Splash.class));
 
         btn = (Button) this.findViewById(R.id.btn);
         btn.setOnClickListener(this);
@@ -43,40 +45,38 @@ public class MainActivity extends Activity implements View.OnClickListener, Text
         btn2 = (ImageView) this.findViewById(R.id.map);
         btn2.setOnClickListener(this);
 
-
         edit = (AutoCompleteTextView) this.findViewById(R.id.edit);
         edit.addTextChangedListener(this);
 
         ArrayAdapter<String> item = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, items);
         edit.setAdapter(item);
+
     }
 
     public void onClick(View v) {
 
-        if (v.getId() == R.id.btn) {
-            if (Arrays.asList(items).contains(edit.getText().toString())) {
-                Intent intent = new Intent(this, SecondActivity.class);
+        if(v.getId() == R.id.btn) {
+            if(Arrays.asList(items).contains(edit.getText().toString())) {
+                Intent intent = new Intent(this, com.example.lg.congestion.SecondActivity.class);
                 intent.putExtra("main_station", edit.getText().toString());
                 startActivity(intent);
             }
-            else {
+            else{
                 new AlertDialog.Builder(this)
                         .setTitle("앗!")
-                        .setMessage("잘못된 역 이름입니다.\n" +
-                                "다시 입력해주세요.")
-                        .setNeutralButton("네",new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dlg, int sumthin) {}
-                                }
-                        )
+                        .setMessage("잘못된 역 이름입니다.\n" + "다시 입력해주세요.")
+                        .setNeutralButton("네", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dlg, int sumthin) {}
+                        })
                         .show();
             }
         }
-        if (v.getId() == R.id.start) {
-            Intent intent2 = new Intent(this, TimeActivity.class);
+        if(v.getId() == R.id.start) {
+            Intent intent2 = new Intent(this, com.example.lg.congestion.TimeActivity.class);
             startActivity(intent2);
         }
-        if (v.getId() == R.id.map) {
-            Intent intent3 = new Intent(this, MapActivity.class);
+        if(v.getId() == R.id.map) {
+            Intent intent3 = new Intent(this, com.example.lg.congestion.MapActivity.class);
             startActivity(intent3);
         }
 
@@ -90,5 +90,4 @@ public class MainActivity extends Activity implements View.OnClickListener, Text
 
     public void afterTextChanged(Editable s) {
     }
-
 }
